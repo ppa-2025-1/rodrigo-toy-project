@@ -1,0 +1,4 @@
+rootProject.name = 'microsservicos'
+
+include 'ms-user'
+include 'ms-chamado'
