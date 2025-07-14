@@ -2,12 +2,13 @@ package com.example.demo.model.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "calls")
-public class Call extends BaseEntity {
+@Table(name = "tickets")
+public class Ticket extends BaseEntity {
 
-    public enum CallStatus {
+    public enum TicketStatus {
         NOVO,      
         ANDAMENTO,  
         RESOLVIDO,
@@ -24,10 +25,11 @@ public class Call extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private CallStatus status;
+    private TicketStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     public String getAction() {
@@ -54,11 +56,11 @@ public class Call extends BaseEntity {
         this.details = details;
     }
 
-    public CallStatus getStatus() {
+    public TicketStatus getStatus() {
         return status;
     }
 
-    public void setStatus(CallStatus status) {
+    public void setStatus(TicketStatus status) {
         this.status = status;
     }
 

@@ -8,6 +8,6 @@ import com.example.demo.model.entity.BaseEntity;
 public interface BaseRepository<T extends BaseEntity, ID> extends ListCrudRepository<T, ID> {
     
 
-    // T findByIdAndDeletedIsTrue(ID id);
+    // findByIdAndDeletedIsTrue(ID id);
 
 }

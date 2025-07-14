@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException ex) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ex.getMessage()); // You can customize the response body if needed
+                .body(ex.getMessage());
     }
 }
 

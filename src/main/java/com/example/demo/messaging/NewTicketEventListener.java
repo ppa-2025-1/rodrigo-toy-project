@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.config.RabbitMQConfig;
 import com.example.demo.dto.NewUser;
-import com.example.demo.model.business.CallBusiness;
+import com.example.demo.model.business.TicketBusiness;
 
 @Component
-public class NewCallEventListener {
+public class NewTicketEventListener {
     
-    private final CallBusiness callBusiness;
+    private final TicketBusiness ticketBusiness;
 
-    public NewCallEventListener(CallBusiness callBusiness) {
-        this.callBusiness = callBusiness;
+    public NewTicketEventListener(TicketBusiness ticketBusiness) {
+        this.ticketBusiness = ticketBusiness;
     }
 }

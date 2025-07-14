@@ -22,19 +22,19 @@ public class UserBusiness {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final Set<String> defaultRoles;
-    private final CallBusiness callBusiness;
+    private final TicketBusiness ticketBusiness;
 
     public UserBusiness(
             UserRepository userRepository,
             RoleRepository roleRepository,
             @Value("${app.user.default.roles}") Set<String> defaultRoles,
-            CallBusiness callBusiness) {
+            TicketBusiness ticketBusiness) {
 
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
         this.defaultRoles = defaultRoles;
-        this.callBusiness = callBusiness;
+        this.ticketBusiness = ticketBusiness;
     }
 
     public void criarUsuario(NewUser newUser) {
@@ -89,7 +89,7 @@ public class UserBusiness {
 
         userRepository.save(user);
 
-        callBusiness.abrirChamadoInicialParaNovoUsuario(user);
+        ticketBusiness.abrirChamadoInicialParaNovoUsuario(user);
     }
 
     private String generateHandle(String email) {
